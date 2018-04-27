@@ -20,3 +20,8 @@ Feature: Bank
     When 99.91 is transfered from account A to B
     Then balance on account A is 0.09
     And balance on account B is 1099.91
+
+  Scenario: deposit money
+    Given balance on the account is 100
+    When customer deposits 10 to this account
+    Then balance on the account is 110
