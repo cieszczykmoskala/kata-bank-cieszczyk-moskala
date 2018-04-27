@@ -12,4 +12,8 @@ public class PaymentService {
     public void depositMoney(Account account, double moneyDeposit){
         account.setBalance(account.getBalance() + moneyDeposit);
     }
+
+    public void withdrawnMoney(Account account, double moneyDeposit){
+        account.setBalance(account.getBalance() - moneyDeposit);
+    }
 }
