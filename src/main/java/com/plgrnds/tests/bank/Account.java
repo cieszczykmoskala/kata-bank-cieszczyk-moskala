@@ -8,9 +8,12 @@ public class Account {
     private final UUID id;
     private final Customer owner;
 
+    private double balance;
+
     public Account(Customer owner) {
         id = UUID.randomUUID();
         this.owner = owner;
+        this.balance = 0;
     }
 
     public Customer getOwner() {
@@ -31,4 +34,11 @@ public class Account {
         return Objects.hash(id);
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 }
