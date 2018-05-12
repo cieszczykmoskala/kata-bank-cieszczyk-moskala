@@ -1,3 +1,9 @@
+
+//Study project//
+
+[![Build Status](https://travis-ci.org/cieszczykmoskala/kata-bank-cieszczyk-moskala.svg?branch=master)](https://travis-ci.org/cieszczykmoskala/kata-bank-cieszczyk-moskala)
+
+
 <h3>Cucumber JVM with Gradle and Groovy Skeleton</h3>
 
 [![Build Status](https://travis-ci.org/d-led/cucumber-groovy-gradle.svg?branch=master)](https://travis-ci.org/d-led/cucumber-groovy-gradle)
