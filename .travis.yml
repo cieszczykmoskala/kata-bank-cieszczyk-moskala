@@ -1,6 +1,7 @@
-language: java
+language: groovy
 
 script:
+  - gradle cucumber
   - ./gradlew assemble
   - ./gradlew check --stacktrace --info
   - ./gradlew jacocoTestReport
