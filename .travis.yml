@@ -1,9 +1,14 @@
-language: groovy
+#language: groovy
+#
+#script:
+#  gradle cucumber
+#  gradle assemble
+#  gradle check
+#
+#after_success:
+#    - bash <(curl -s https://codecov.io/bash)
 
-script:
-  gradle cucumber
-  gradle assemble
-  gradle check
 
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
+language: java
+jdk:
+  - oraclejdk8
