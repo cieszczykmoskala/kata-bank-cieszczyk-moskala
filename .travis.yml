@@ -1,7 +1,9 @@
 language: groovy
 
 script:
-  - gradle cucumber
-
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  gradle cucumber
+  gradle assemble
+  gradle check
+#
+#after_success:
+#    - bash <(curl -s https://codecov.io/bash)
