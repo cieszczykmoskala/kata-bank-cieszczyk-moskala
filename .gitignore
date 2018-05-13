@@ -3,3 +3,11 @@ build/
 .idea
 out
 gradle/
+
+
+/.idea/
+*.iml
+/target/
+/lib
+/build/
+/.gradle/
