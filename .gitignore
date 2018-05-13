@@ -1,8 +1,8 @@
-.gradle/
+.gradlew/
 build/
 .idea
 out
-gradle/
+gradlew/
 
 
 /.idea/
@@ -10,4 +10,4 @@ gradle/
 /target/
 /lib
 /build/
-/.gradle/
+/.gradlew/
