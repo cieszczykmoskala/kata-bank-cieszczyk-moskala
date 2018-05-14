@@ -20,6 +20,8 @@ jacocoTestReport {
 	}
 }
 
+check.dependsOn jacocoTestReport
+
 
 configurations {
 	cucumberRuntime { extendsFrom testRuntime }
