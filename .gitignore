@@ -18,3 +18,5 @@ gradlew/
 .settings/
 build/
 bin/
+
+gradle/
