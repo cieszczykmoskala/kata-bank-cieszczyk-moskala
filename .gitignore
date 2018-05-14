@@ -11,3 +11,10 @@ gradlew/
 /lib
 /build/
 /.gradlew/
+
+.gradle
+.project
+.classpath
+.settings/
+build/
+bin/
