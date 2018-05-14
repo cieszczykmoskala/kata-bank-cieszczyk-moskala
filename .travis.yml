@@ -25,8 +25,8 @@
 
 language: java
 
-before_install:
- - chmod +x gradlew
+#before_install:
+# - chmod +x gradlew
 
 jdk:
   - oraclejdk8
@@ -36,5 +36,5 @@ env:
 
 after_success:
  - bash <(curl -s https://codecov.io/bash)
-- ./gradlew test jacocoTestReport coveralls
+#- ./gradlew test jacocoTestReport coveralls
 
