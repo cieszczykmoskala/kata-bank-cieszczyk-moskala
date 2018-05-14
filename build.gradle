@@ -1,5 +1,6 @@
 apply plugin: "groovy"
 apply plugin: "java"
+apply plugin: 'jacoco'
 
 repositories { mavenCentral() }
 
@@ -11,6 +12,14 @@ dependencies {
 	testCompile "info.cukes:gherkin:2.12.2"
 	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.9.1'
 }
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled false
+	}
+}
+
 
 configurations {
 	cucumberRuntime { extendsFrom testRuntime }
