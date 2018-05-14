@@ -30,3 +30,11 @@ before_install:
 
 jdk:
   - oraclejdk8
+
+script:
+  - ./gradlew check
+  - ./gradlew cucumber
+after_success:
+  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
+  - bash <(curl -s https://codecov.io/bash)
+
