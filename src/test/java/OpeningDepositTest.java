@@ -5,9 +5,14 @@ import com.plgrnds.tests.bank.NotEnoughMoneyException;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+
 
 /**
  * Created by sylwe on 15.05.2018.
@@ -16,6 +21,9 @@ public class OpeningDepositTest {
 
     private Account account;
     private DepositAccount depositAccount;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Before
     public void setUp(){
@@ -54,5 +62,14 @@ public class OpeningDepositTest {
     public void accountBalanceAfterOpenDepositAccount() throws NotEnoughMoneyException{
         depositAccount.setBalance(account, 90);
         assertEquals(account.getBalance(), 10, 0);
+    }
+
+
+    @Test
+    public void whenCustomerWantOpenDepositAccountWithBalanceGreaterThatAccountBalanceThenException()
+            throws NotEnoughMoneyException {
+
+        exception.expect(NotEnoughMoneyException.class);
+        depositAccount.setBalance(account, 110);
     }
 }
