@@ -13,7 +13,7 @@ public class AccountTest {
     public void equalsContract() {
         EqualsVerifier.forClass(Account.class)
                 .usingGetClass()
-                .suppress(Warning.NONFINAL_FIELDS)
+                .suppress(Warning.ALL_FIELDS_SHOULD_BE_USED)
                 .verify();
     }
 }
