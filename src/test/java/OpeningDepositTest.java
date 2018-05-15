@@ -8,10 +8,8 @@ import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
@@ -36,7 +34,8 @@ public class OpeningDepositTest {
 
     @Test
     public void customerHasAnAccount(){
-        assertFalse(account.equals(null));
+
+        assertThat(account).isNotNull();
     }
 
     @Test
@@ -47,7 +46,8 @@ public class OpeningDepositTest {
 
     @Test
     public void customerOpenDepositAccount(){
-        assertFalse(depositAccount.equals(null));
+
+        assertThat(depositAccount).isNotNull();
     }
 
 
