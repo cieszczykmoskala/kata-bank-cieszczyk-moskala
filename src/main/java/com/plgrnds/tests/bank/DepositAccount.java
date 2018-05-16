@@ -1,11 +1,14 @@
 package com.plgrnds.tests.bank;
 
+import java.time.LocalDate;
+
 /**
  * Created by sylwe on 15.05.2018.
  */
 public class DepositAccount {
     private Customer customer;
     private double balance;
+    private DepositPeriod depositPeriod;
 
     public DepositAccount(Customer customer) {
         this.customer = customer;
@@ -22,4 +25,13 @@ public class DepositAccount {
         this.balance = moneyTransferOnDesposit;
         account.setBalance(account.getBalance() - moneyTransferOnDesposit);
     }
+
+    public DepositPeriod getPeriod(){
+        return depositPeriod;
+    }
+
+    public void setPerdiod(DepositPeriod depositPeriod){
+        this.depositPeriod = depositPeriod;
+    }
+
 }
