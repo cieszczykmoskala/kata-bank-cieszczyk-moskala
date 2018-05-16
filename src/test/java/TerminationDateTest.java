@@ -11,6 +11,7 @@ import org.junit.rules.ExpectedException;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.Assert.assertEquals;
 
 
 /**
@@ -43,6 +44,21 @@ public class TerminationDateTest {
 
     @Test
     public void openDepositAccountForAPeriodPartTwo(){
-        assertThat(depositAccount.getPeriod().getDescription()).isEqualTo("12months");
+        assertThat(depositAccount.getPeriod().getMonths()).isEqualTo(12);
+    }
+
+    @Test
+    public void whenMoneyBackToTheAccount(){
+        String result = "Money can be returned to your account";
+        assertEquals(depositAccount.moneyBackToAccount(12), result);
+        assertEquals(depositAccount.moneyBackToAccount(13), result);
+    }
+
+    @Test
+    public void whenMonthsAmountIsLessThanDepositPeriod(){
+        exception.expect(RuntimeException.class);
+        depositAccount.moneyBackToAccount(11);
+        depositAccount.moneyBackToAccount(5);
+        depositAccount.moneyBackToAccount(1);
     }
 }

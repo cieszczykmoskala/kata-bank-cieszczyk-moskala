@@ -34,4 +34,12 @@ public class DepositAccount {
         this.depositPeriod = depositPeriod;
     }
 
+    public String moneyBackToAccount(Integer monthsAmountFromStartDepositAccount){
+        if(monthsAmountFromStartDepositAccount < depositPeriod.getMonths())
+            throw new RuntimeException("Deposit period is not over yet. " +
+                    "Money can not be returned to your account");
+
+        return "Money can be returned to your account";
+
+    }
 }

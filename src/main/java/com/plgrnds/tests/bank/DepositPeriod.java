@@ -4,14 +4,14 @@ package com.plgrnds.tests.bank;
  * Created by sylwe on 16.05.2018.
  */
 public enum DepositPeriod {
-    ONEYEAR("12months"), TWOYEARS("24months"), THREEYEARS("36months"), FOURYEARS("48months"), FIVEYEARS("60months");
+    ONEYEAR(12), TWOYEARS(24), THREEYEARS(36), FOURYEARS(48), FIVEYEARS(60);
 
-    private String description;
-    DepositPeriod(String desc) {
-        description = desc;
+    private Integer monthsAmount;
+    DepositPeriod(Integer months) {
+        monthsAmount = months;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getMonths() {
+        return monthsAmount;
     }
 }
