@@ -15,7 +15,7 @@ class DepositMoneyTest extends Specification {
         paymentService.depositMoney(account, 10)
 
         then:
-        assertThat(account.getBalance()).isEqualTo(110)
+        assertThat(account.getBalance().doubleValue()).isEqualTo(110)
 
         where:
         customer = new Customer()

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals
 
 class TransferMoneyTest extends Specification {
 
-    def "money is transfered from account A to B"() {
+    def "money is transferred from account A to B"() {
         when:
         accountA.setBalance(100.0)
         accountB.setBalance(1000.0)

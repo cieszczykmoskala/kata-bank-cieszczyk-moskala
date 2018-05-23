@@ -6,6 +6,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,9 +30,9 @@ public class InterestRateTest {
         account = new Account(customer);
         depositAccount = new DepositAccount(customer);
 
-        depositAccount.setBalance(100.0);
+        depositAccount.setBalance(BigDecimal.valueOf(100.0));
         depositAccount.setPeriod(DepositPeriod.SIXMONTHS);
-        depositAccount.setInterestRate(0.1);
+        depositAccount.setInterestRate(BigDecimal.valueOf(0.1));
     }
 
     @Test
@@ -39,7 +42,7 @@ public class InterestRateTest {
 
     @Test
     public void areFundsOnDepositAccountCorrect(){
-        assertEquals(depositAccount.getBalance(), 100.0, 0.0);
+        assertEquals(depositAccount.getBalance().doubleValue(), 100.0, 0.0);
     }
 
     @Test
@@ -49,7 +52,7 @@ public class InterestRateTest {
 
     @Test
     public void isInterestRateCorrect() {
-        assertEquals(depositAccount.getInterestRate(), 0.1, 0.0);
+        assertEquals(depositAccount.getInterestRate().doubleValue(), 0.1, 0.0);
     }
 
     @Test
@@ -57,12 +60,12 @@ public class InterestRateTest {
 
     @Test
     public void isGainedAmountCorrect() {
-        assertEquals(depositAccount.getBalanceIncreasedByInterest(), 105.0, 0.0);
+        assertEquals(depositAccount.getBalanceIncreasedByInterest().doubleValue(), 105.0, 0.0);
     }
 
     @Test
     public void isAllMoneyTransferredBackProperly() {
-        account.setBalance(depositAccount.getBalanceIncreasedByInterest());
-        assertEquals(account.getBalance(), 105.0, 0.0);
+        account.setBalance(account.getBalance().add(depositAccount.getBalanceIncreasedByInterest()));
+        assertEquals(account.getBalance().doubleValue(), 105.0, 0.0);
     }
 }
