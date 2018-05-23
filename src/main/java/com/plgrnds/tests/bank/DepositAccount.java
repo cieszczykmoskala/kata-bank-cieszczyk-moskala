@@ -21,6 +21,7 @@ public class DepositAccount {
 
     public double getBalanceIncreasedByInterest(){
         balance = balance + balance * interestRate * depositPeriod.getMonths() / 12;
+        return balance;
     }
 
     public void setBalance(Account account, double moneyTransferOnDesposit) throws NotEnoughMoneyException  {
@@ -59,6 +60,4 @@ public class DepositAccount {
         return "Money can be returned to your account";
 
     }
-
-    public void
 }
