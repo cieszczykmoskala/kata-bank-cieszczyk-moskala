@@ -48,7 +48,7 @@ public class DepositAccount {
         return depositPeriod;
     }
 
-    public void setPerdiod(DepositPeriod depositPeriod){
+    public void setPeriod(DepositPeriod depositPeriod){
         this.depositPeriod = depositPeriod;
     }
 

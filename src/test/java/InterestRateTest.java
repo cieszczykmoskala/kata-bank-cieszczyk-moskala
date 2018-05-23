@@ -24,11 +24,11 @@ public class InterestRateTest {
     @Before
     public void setUp(){
         Customer customer = new Customer();
-        Account account = new Account(customer);
-        DepositAccount depositAccount = new DepositAccount(customer);
+        account = new Account(customer);
+        depositAccount = new DepositAccount(customer);
 
         depositAccount.setBalance(100.0);
-        depositAccount.setPerdiod(DepositPeriod.SIXMONTHS);
+        depositAccount.setPeriod(DepositPeriod.SIXMONTHS);
         depositAccount.setInterestRate(0.1);
     }
 
@@ -53,7 +53,7 @@ public class InterestRateTest {
     }
 
     @Test
-    public void isPeriodCorrect() { assertEquals(depositAccount.getPeriod(), 6); }
+    public void isPeriodCorrect() { assertEquals(depositAccount.getPeriod(), DepositPeriod.SIXMONTHS); }
 
     @Test
     public void isGainedAmountCorrect() {
