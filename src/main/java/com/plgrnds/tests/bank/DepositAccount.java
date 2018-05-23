@@ -9,6 +9,7 @@ public class DepositAccount {
     private Customer customer;
     private double balance;
     private DepositPeriod depositPeriod;
+    private double interestRate = 0.0;
 
     public DepositAccount(Customer customer) {
         this.customer = customer;
@@ -18,12 +19,28 @@ public class DepositAccount {
         return balance;
     }
 
+    public double getBalanceIncreasedByInterest(){
+        balance = balance + balance * interestRate * depositPeriod.getMonths() / 12;
+    }
+
     public void setBalance(Account account, double moneyTransferOnDesposit) throws NotEnoughMoneyException  {
         if(moneyTransferOnDesposit > account.getBalance())
             throw new NotEnoughMoneyException("Not enough money an your account");
 
         this.balance = moneyTransferOnDesposit;
         account.setBalance(account.getBalance() - moneyTransferOnDesposit);
+    }
+
+    public void setBalance(double initialBalance){
+        this.balance = initialBalance;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
     }
 
     public DepositPeriod getPeriod(){
@@ -42,4 +59,6 @@ public class DepositAccount {
         return "Money can be returned to your account";
 
     }
+
+    public void
 }
