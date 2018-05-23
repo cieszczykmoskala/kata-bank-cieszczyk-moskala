@@ -9,12 +9,18 @@ public class DepositAccount {
     private Customer customer;
     private double balance;
     private DepositPeriod depositPeriod;
+    private double interestRate = 0.0;
 
     public DepositAccount(Customer customer) {
         this.customer = customer;
     }
 
     public double getBalance() {
+        return balance;
+    }
+
+    public double getBalanceIncreasedByInterest(){
+        balance = balance + balance * interestRate * depositPeriod.getMonths() / 12;
         return balance;
     }
 
@@ -26,11 +32,23 @@ public class DepositAccount {
         account.setBalance(account.getBalance() - moneyTransferOnDesposit);
     }
 
+    public void setBalance(double initialBalance){
+        this.balance = initialBalance;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
     public DepositPeriod getPeriod(){
         return depositPeriod;
     }
 
-    public void setPerdiod(DepositPeriod depositPeriod){
+    public void setPeriod(DepositPeriod depositPeriod){
         this.depositPeriod = depositPeriod;
     }
 

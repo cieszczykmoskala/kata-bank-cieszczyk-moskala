@@ -28,7 +28,7 @@ public class TerminationDateTest {
     public void setUp(){
         Customer customer = new Customer();
         depositAccount =  new DepositAccount(customer);
-        depositAccount.setPerdiod(DepositPeriod.ONEYEAR);
+        depositAccount.setPeriod(DepositPeriod.ONEYEAR);
     }
 
     @Test
