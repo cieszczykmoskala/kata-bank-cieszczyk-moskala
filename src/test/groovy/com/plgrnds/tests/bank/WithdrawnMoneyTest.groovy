@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat
  */
 class WithdrawnMoneyTest extends Specification {
 
-    def "customer withdrawns 90 to this account and balance on the account is 10"() {
+    def "customer withdraws 90 to this account and balance on the account is 10"() {
         when:
         account.setBalance(100.0)
         paymentService.withdrawnMoney(account, 90)

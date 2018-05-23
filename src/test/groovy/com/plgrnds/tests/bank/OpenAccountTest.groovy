@@ -10,7 +10,7 @@ class OpenAccountTest extends Specification {
 
     private final InMemoryAccountRepository repository = new InMemoryAccountRepository()
 
-    def "new account can be open by customer and its balance equals 0"() {
+    def "new account can be opened by customer and its balance equals 0"() {
         when:
         repository.addAccount(newAccount)
 

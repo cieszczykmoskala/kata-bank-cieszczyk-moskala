@@ -1,5 +1,6 @@
 package com.plgrnds.tests.bank;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
@@ -7,40 +8,40 @@ import java.time.LocalDate;
  */
 public class DepositAccount {
     private Customer customer;
-    private double balance;
+    private BigDecimal balance;
     private DepositPeriod depositPeriod;
-    private double interestRate = 0.0;
+    private BigDecimal interestRate = BigDecimal.valueOf(0.0);
 
     public DepositAccount(Customer customer) {
         this.customer = customer;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public double getBalanceIncreasedByInterest(){
-        balance = balance + balance * interestRate * depositPeriod.getMonths() / 12;
+    public BigDecimal getBalanceIncreasedByInterest(){
+        balance = balance.add((balance.multiply(interestRate).multiply(BigDecimal.valueOf(depositPeriod.getMonths()))).divide(BigDecimal.valueOf(12)));
         return balance;
     }
 
-    public void setBalance(Account account, double moneyTransferOnDesposit) throws NotEnoughMoneyException  {
-        if(moneyTransferOnDesposit > account.getBalance())
+    public void setBalance(Account account, BigDecimal moneyTransferOnDesposit) throws NotEnoughMoneyException  {
+        if(moneyTransferOnDesposit.compareTo(account.getBalance()) > 0)
             throw new NotEnoughMoneyException("Not enough money an your account");
 
         this.balance = moneyTransferOnDesposit;
-        account.setBalance(account.getBalance() - moneyTransferOnDesposit);
+        account.setBalance(account.getBalance().subtract(moneyTransferOnDesposit));
     }
 
-    public void setBalance(double initialBalance){
+    public void setBalance(BigDecimal initialBalance){
         this.balance = initialBalance;
     }
 
-    public double getInterestRate() {
+    public BigDecimal getInterestRate() {
         return interestRate;
     }
 
-    public void setInterestRate(double interestRate) {
+    public void setInterestRate(BigDecimal interestRate) {
         this.interestRate = interestRate;
     }
 
