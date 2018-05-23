@@ -15,7 +15,7 @@ class OpenAccountTest extends Specification {
         repository.addAccount(newAccount)
 
         then:
-        assertThat(newAccount.getBalance()).isEqualTo(0)
+        assertThat(newAccount.getBalance().doubleValue()).isEqualTo(0)
 
         where:
         customer = new Customer()

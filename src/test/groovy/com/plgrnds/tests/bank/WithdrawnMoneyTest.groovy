@@ -1,5 +1,6 @@
 package com.plgrnds.tests.bank
 
+import org.assertj.core.data.Offset
 import spock.lang.Specification
 
 import static org.assertj.core.api.Assertions.assertThat
@@ -16,7 +17,7 @@ class WithdrawnMoneyTest extends Specification {
         paymentService.withdrawnMoney(account, 90)
 
         then:
-        assertThat(account.getBalance()).isEqualTo(10)
+        assertThat(account.getBalance().doubleValue()).isEqualTo(10)
 
         where:
         customer = new Customer()
